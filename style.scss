@@ -1,0 +1,389 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+@import "variables";
+
+@import "mixins";
+
+body {
+  background-color: $light-background-body;
+  color: $light-text-main;
+  font-family: $font;
+  // to position sidenav
+  position: relative;
+  // to be pushed by sidenav
+  left: 0;
+  transition: left $transition-duration, background-color $transition-duration;
+
+  // icons
+  svg {
+    color: $light-text-main;
+  }
+
+  // body.dark
+  &.dark {
+    color: $dark-text-main;
+    background-color: $dark-background-body;
+
+    svg {
+      color: $dark-text-main;
+    }
+  }
+}
+
+// wrapping container
+.container {
+  padding: 1em;
+  @include restrict-width;
+}
+
+// content container
+.inner-container {
+  padding: 1em;
+  background-color: $light-background-container;
+  border-radius: 5px;
+  transition: background-color $transition-duration;
+
+  @include dark-theme {
+    background-color: $dark-background-container;
+  }
+}
+
+.secondary-text {
+  color: $light-text-secondary;
+
+  @include dark-theme {
+    color: $dark-text-secondary;
+  }
+}
+
+.orange-text {
+  color: $orange;
+}
+
+.blue-text {
+  color: $blue;
+}
+
+.green-text {
+  color: $green;
+}
+
+.red-text {
+  color: $red;
+}
+
+.side-nav {
+  height: 100%;
+  width: $sidenav-width;
+  position: fixed;
+  top: 0;
+  // hide nav
+  right: -$sidenav-width;
+  z-index: 1;
+  background-color: $light-background-container;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 1em;
+  transition: right $transition-duration, background-color $transition-duration;
+
+  @include dark-theme {
+    background-color: $dark-background-container;
+  }
+
+  .header {
+    @include flex($justify: space-between, $align: center);
+  }
+
+  .theme-toggler-container {
+    @include theme-toggler-container;
+  }
+
+  .close-menu {
+    cursor: pointer;
+  }
+
+  .user {
+    @include flex($justify: space-between, $align: center);
+    margin-top: 3em;
+    margin-bottom: 3em;
+
+    img {
+      width: 66px;
+      height: 66px;
+    }
+
+    .name {
+      font-size: 1.2em;
+    }
+  }
+
+  .nav-list {
+    @include nav-list;
+  }
+}
+
+header {
+  .container {
+    @include flex($justify: space-between, $align: center);
+  }
+
+  p {
+    font-size: 1.1em;
+  }
+
+  .red-text {
+    color: $red;
+  }
+
+  .open-menu {
+    cursor: pointer;
+
+    // hide menu icon on large screen
+    @include media-query($breakpoint-2) {
+      display: none;
+    }
+  }
+
+  .theme-toggler-container {
+    @include theme-toggler-container;
+    // hide theme toggler on small screen
+    display: none;
+
+    @include media-query($breakpoint-2) {
+      display: flex;
+      background-color: $light-background-container;
+
+      @include dark-theme {
+        background-color: $dark-background-container;
+      }
+    }
+  }
+}
+
+section.user {
+  .container {
+    @include flex($align: center, $direction: column);
+  }
+
+  img {
+    border: 3px solid $orange;
+    border-radius: 50%;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+  }
+
+  .name {
+    font-size: 1.4em;
+  }
+
+  .secondary-text {
+    margin-top: 0.1em;
+    font-size: 0.9em;
+  }
+
+  .nav-list {
+    @include nav-list;
+    /* hide nav list beneath user info
+     on small screen */
+    display: none;
+
+    @include media-query($breakpoint-2) {
+      display: block;
+      margin-top: 3em;
+      align-self: flex-start;
+    }
+  }
+}
+
+section.today-workout {
+  h1 {
+    @include header;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-size: 1.125em;
+    border-bottom: 1px solid #f5f5fb;
+    padding-bottom: 0.7em;
+    transition: border-bottom-color $transition-duration;
+
+    @include dark-theme {
+      border-bottom-color: #424056;
+    }
+  }
+
+  .exercise {
+    padding: 1em 0 0.5em;
+
+    .secondary-text {
+      text-transform: uppercase;
+      font-size: 0.75em;
+      margin-bottom: 0.5em;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+section.timer {
+  h1 {
+    @include header;
+  }
+
+  .num-exercises-container {
+    @include flex($align: center, $direction: column);
+  }
+
+  .num-exercises {
+    font-weight: 700;
+    font-size: 2em;
+    margin-top: 0.1em;
+  }
+
+  .timer-entry {
+    @include flex($justify: space-between);
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+
+    .minus {
+      margin-right: 1em;
+    }
+
+    .plus {
+      margin-left: 1em;
+    }
+  }
+
+  .control-buttons {
+    @include flex($justify: center, $align: center);
+    margin-top: 0.7em;
+
+    svg {
+      // stop icon
+      &:first-child {
+        margin-right: 0.9em;
+      }
+
+      // play icon
+      &.play {
+        margin-right: 0.7em;
+      }
+    }
+  }
+}
+
+section.info {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.1em;
+  }
+
+  .info-title {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+  }
+
+  .num-unit-container {
+    @include flex($justify: space-between, $align: flex-end);
+  }
+
+  .num {
+    font-weight: 700;
+    font-size: 1.7em;
+    color: $light-text-main;
+
+    @include dark-theme {
+      color: $dark-text-main;
+    }
+  }
+
+  .unit {
+    font-size: 0.8em;
+  }
+}
+
+section.workouts {
+  h1 {
+    @include header;
+  }
+
+  .inner-container {
+    position: relative;
+  }
+
+  .plus-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: $green;
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 500;
+    border: 7px solid $light-background-body;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: -0.7em;
+    margin-right: -0.5em;
+    transition: border-color $transition-duration;
+    @include flex($justify: center, $align: center);
+
+    @include dark-theme {
+      border-color: $dark-background-body;
+    }
+  }
+
+  p {
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+  }
+}
+
+main {
+  // 650px & above
+  @include media-query($breakpoint-1) {
+    @include flex;
+    flex-wrap: wrap;
+
+    // layout
+    /*
+       - user info expand full width
+       - next row is divided into two columns
+    */
+    > * {
+      width: 50%;
+    }
+
+    section.user {
+      width: 100%;
+    }
+  }
+
+  @include media-query($breakpoint-2) {
+    @include flex($justify: space-between);
+    @include restrict-width;
+
+    // layout: three columns
+    > * {
+      width: 40%;
+    }
+
+    section.user {
+      width: 20%;
+    }
+  }
+}

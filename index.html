@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Workout Tracker</title>
+    <!-- google font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <!-- style -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -18,40 +20,45 @@
         <div class="theme-toggler-container">
           <!-- sun filled in light theme -->
           <span
-            class="iconify sun sun-solid"
+            class="iconify sun-solid"
             data-inline="false"
             data-icon="clarity:sun-solid"
             style="color: #3c3563; font-size: 22px"
           ></span>
           <!-- sun outlined in dark theme -->
-          <span
-            class="iconify sun sun-outline"
-            data-inline="false"
-            data-icon="octicon:sun-24"
-            style="color: #ffffff; font-size: 22px"
-          ></span>
+          <span class="sun-outline">
+            <span
+              class="iconify"
+              data-inline="false"
+              data-icon="octicon:sun-24"
+              style="color: #ffffff; font-size: 22px"
+            ></span>
+          </span>
           <!-- moon outlined in light theme -->
-          <span
-            class="iconify moon moon-outline"
-            data-inline="false"
-            data-icon="eva:moon-outline"
-            style="color: #3c3563; font-size: 22px"
-          ></span>
+          <span class="moon-outline">
+            <span
+              class="iconify"
+              data-inline="false"
+              data-icon="eva:moon-outline"
+              style="color: #3c3563; font-size: 22px"
+            ></span>
+          </span>
           <!-- moon filled in dark theme -->
           <span
-            class="iconify moon moon-solid"
+            class="iconify moon-solid"
             data-inline="false"
             data-icon="eva:moon-fill"
             style="color: #ffffff; font-size: 22px"
           ></span>
         </div>
-        <span
-          id="close-menu"
-          class="iconify close-menu"
-          data-inline="false"
-          data-icon="eva:close-outline"
-          style="font-size: 27px"
-        ></span>
+        <span id="close-menu" class="close-menu">
+          <span
+            class="iconify"
+            data-inline="false"
+            data-icon="eva:close-outline"
+            style="font-size: 27px"
+          ></span>
+        </span>
       </div>
       <!-- user info -->
       <div class="user">
@@ -101,223 +108,233 @@
         </li>
       </ul>
     </aside>
-    <!-- header -->
-    <header>
-      <div class="container">
-        <p><span class="red-text">Workout</span> Tracker</p>
-        <!-- displayed on small screen -->
-        <span
-          id="open-menu"
-          class="iconify open-menu"
-          data-inline="false"
-          data-icon="jam:menu"
-          style="font-size: 30px"
-        ></span>
-        <!-- displayed on lrage screen -->
-        <div class="theme-toggler-container">
-          <!-- sun filled in light theme -->
-          <span
-            class="iconify sun sun-solid"
-            data-inline="false"
-            data-icon="clarity:sun-solid"
-            style="color: #3c3563; font-size: 22px"
-          ></span>
-          <!-- sun outlined in dark theme -->
-          <span
-            class="iconify sun sun-outline"
-            data-inline="false"
-            data-icon="octicon:sun-24"
-            style="color: #ffffff; font-size: 22px"
-          ></span>
-          <!-- moon outlined in light theme -->
-          <span
-            class="iconify moon moon-outline"
-            data-inline="false"
-            data-icon="eva:moon-outline"
-            style="color: #3c3563; font-size: 22px"
-          ></span>
-          <!-- moon filled in dark theme -->
-          <span
-            class="iconify moon moon-solid"
-            data-inline="false"
-            data-icon="eva:moon-fill"
-            style="color: #ffffff; font-size: 22px"
-          ></span>
-        </div>
-      </div>
-    </header>
-    <!-- main -->
-    <main>
-      <!-- user -->
-      <section class="user">
+    <div class="container-max">
+      <!-- header -->
+      <header>
         <div class="container">
-          <img src="./user-pic.png" alt="user picture" />
-          <p class="name">Anna Doe</p>
-          <p class="secondary-text">Fitness lover</p>
-          <!-- navigation: displayed on large screen -->
-          <ul class="nav-list">
-            <li>
+          <a href="./index.html" class="logo"
+            ><span class="red-text">Workout</span> Tracker</a
+          >
+          <!-- displayed on small screen -->
+          <span id="open-menu" class="open-menu">
+            <span
+              class="iconify"
+              data-inline="false"
+              data-icon="jam:menu"
+              style="font-size: 30px"
+            ></span
+          ></span>
+          <!-- displayed on large screen -->
+          <div class="theme-toggler-container">
+            <!-- sun filled in light theme -->
+            <span
+              class="iconify sun-solid"
+              data-inline="false"
+              data-icon="clarity:sun-solid"
+              style="color: #3c3563; font-size: 22px"
+            ></span>
+            <!-- sun outlined in dark theme -->
+            <span class="sun-outline">
               <span
                 class="iconify"
                 data-inline="false"
-                data-icon="carbon:user-avatar"
-                style="color: #4b62c1; font-size: 23px"
+                data-icon="octicon:sun-24"
+                style="color: #ffffff; font-size: 22px"
               ></span>
-              Profile
-            </li>
-            <li class="active">
+            </span>
+            <!-- moon outlined in light theme -->
+            <span class="moon-outline">
               <span
                 class="iconify"
                 data-inline="false"
-                data-icon="carbon:dashboard"
-                style="color: #4b62c1; font-size: 23px"
+                data-icon="eva:moon-outline"
+                style="color: #3c3563; font-size: 22px"
               ></span>
-              Dashboard
-            </li>
-            <li>
-              <span
-                class="iconify"
-                data-inline="false"
-                data-icon="carbon:event-schedule"
-                style="color: #4b62c1; font-size: 23px"
-              ></span>
-              Schedule
-            </li>
-            <li>
-              <span
-                class="iconify"
-                data-inline="false"
-                data-icon="clarity:logout-line"
-                style="color: #4b62c1; font-size: 23px"
-              ></span>
-              logout
-            </li>
-          </ul>
+            </span>
+            <!-- moon filled in dark theme -->
+            <span
+              class="iconify moon-solid"
+              data-inline="false"
+              data-icon="eva:moon-fill"
+              style="color: #ffffff; font-size: 22px"
+            ></span>
+          </div>
         </div>
-      </section>
-      <div>
-        <!-- today's workout -->
-        <section class="today-workout">
+      </header>
+      <!-- main -->
+      <main>
+        <!-- user -->
+        <section class="user">
           <div class="container">
-            <h1>today's workout</h1>
-            <div class="inner-container">
-              <h2>Full body</h2>
-              <div class="exercise">
-                <p class="secondary-text">leg</p>
-                <p class="exercise-name">Side lung</p>
-              </div>
-              <div class="exercise">
-                <p class="secondary-text">glutes</p>
-                <p class="exercise-name">Cursty lung</p>
-              </div>
-              <div class="exercise">
-                <p class="secondary-text">shoulder</p>
-                <p class="exercise-name">Dumbbell snatch</p>
-              </div>
-              <div class="exercise">
-                <p class="secondary-text">leg</p>
-                <p class="exercise-name">Split squat</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- all workouts -->
-        <section class="workouts">
-          <div class="container">
-            <h1>My workouts</h1>
-            <div class="inner-container">
-              <div class="plus-circle">+</div>
-              <p class="green-text">Full body</p>
-              <p>HIIT</p>
-              <p>Lower body</p>
-              <p>Back & core</p>
-            </div>
-          </div>
-        </section>
-      </div>
-      <div>
-        <!-- timer -->
-        <section class="timer">
-          <div class="container">
-            <h1>timer</h1>
-            <div class="inner-container">
-              <div class="num-exercises-container">
-                <p class="secondary-text">Exercises</p>
-                <p class="num-exercises">4</p>
-              </div>
-              <div class="timer-entry">
-                <p>Workout</p>
-                <div>
-                  <span class="minus">-</span>
-                  <span> 00:40 </span>
-                  <span class="plus">+</span>
-                </div>
-              </div>
-              <div class="timer-entry">
-                <p>Rest</p>
-                <div>
-                  <span class="minus">-</span>
-                  <span> 00:10 </span>
-                  <span class="plus">+</span>
-                </div>
-              </div>
-              <div class="control-buttons">
+            <img src="./user-pic.png" alt="user picture" />
+            <p class="name">Anna Doe</p>
+            <p class="secondary-text">Fitness lover</p>
+            <!-- navigation: displayed on large screen -->
+            <ul class="nav-list">
+              <li>
                 <span
                   class="iconify"
                   data-inline="false"
-                  data-icon="carbon:stop"
-                  style="font-size: 38px"
+                  data-icon="carbon:user-avatar"
+                  style="color: #4b62c1; font-size: 23px"
                 ></span>
-                <span
-                  class="iconify play"
-                  data-inline="false"
-                  data-icon="bi:play"
-                  style="color: #00ce93; font-size: 43px"
-                ></span>
+                Profile
+              </li>
+              <li class="active">
                 <span
                   class="iconify"
                   data-inline="false"
-                  data-icon="bi:pause"
-                  style="font-size: 39px"
+                  data-icon="carbon:dashboard"
+                  style="color: #4b62c1; font-size: 23px"
                 ></span>
-              </div>
-            </div>
+                Dashboard
+              </li>
+              <li>
+                <span
+                  class="iconify"
+                  data-inline="false"
+                  data-icon="carbon:event-schedule"
+                  style="color: #4b62c1; font-size: 23px"
+                ></span>
+                Schedule
+              </li>
+              <li>
+                <span
+                  class="iconify"
+                  data-inline="false"
+                  data-icon="clarity:logout-line"
+                  style="color: #4b62c1; font-size: 23px"
+                ></span>
+                logout
+              </li>
+            </ul>
           </div>
         </section>
-        <!-- info -->
-        <section class="info">
-          <div class="container">
-            <div class="inner-container">
-              <p class="info-title orange-text">weight</p>
-              <div class="num-unit-container">
-                <p class="num">60</p>
-                <span class="secondary-text unit">kg</span>
+        <div class="breakpoint-1-50 breakpoint-2-40">
+          <!-- today's workout -->
+          <section class="today-workout">
+            <div class="container">
+              <h1>today's workout</h1>
+              <div class="inner-container">
+                <h2>Full body</h2>
+                <div class="exercise">
+                  <p class="secondary-text">leg</p>
+                  <p class="exercise-name">Side lung</p>
+                </div>
+                <div class="exercise">
+                  <p class="secondary-text">glutes</p>
+                  <p class="exercise-name">Cursty lung</p>
+                </div>
+                <div class="exercise">
+                  <p class="secondary-text">shoulder</p>
+                  <p class="exercise-name">Dumbbell snatch</p>
+                </div>
+                <div class="exercise">
+                  <p class="secondary-text">leg</p>
+                  <p class="exercise-name">Split squat</p>
+                </div>
               </div>
             </div>
-            <div class="inner-container">
-              <p class="info-title blue-text">height</p>
-              <div class="num-unit-container">
-                <p class="num">162</p>
-                <span class="secondary-text unit">cm</span>
+          </section>
+          <!-- all workouts -->
+          <section class="workouts">
+            <div class="container">
+              <h1>My workouts</h1>
+              <div class="inner-container">
+                <button class="plus-circle">+</button>
+                <p class="green-text">Full body</p>
+                <p>HIIT</p>
+                <p>Lower body</p>
+                <p>Back & core</p>
               </div>
             </div>
-            <div class="inner-container">
-              <p class="info-title green-text">bmi</p>
-              <p class="num">22.1</p>
-            </div>
-            <div class="inner-container">
-              <p class="info-title red-text">calories</p>
-              <div class="num-unit-container">
-                <p class="num">1732</p>
-                <span class="secondary-text unit">kcal</span>
+          </section>
+        </div>
+        <div class="breakpoint-1-50 breakpoint-2-40">
+          <!-- timer -->
+          <section class="timer">
+            <div class="container">
+              <h1>timer</h1>
+              <div class="inner-container">
+                <div class="num-exercises-container">
+                  <p class="secondary-text">Exercises</p>
+                  <p class="num-exercises">4</p>
+                </div>
+                <div class="timer-entry">
+                  <p>Workout</p>
+                  <div>
+                    <span class="minus">-</span>
+                    <span> 00:40 </span>
+                    <span class="plus">+</span>
+                  </div>
+                </div>
+                <div class="timer-entry">
+                  <p>Rest</p>
+                  <div>
+                    <span class="minus">-</span>
+                    <span> 00:10 </span>
+                    <span class="plus">+</span>
+                  </div>
+                </div>
+                <div class="control-buttons">
+                  <span
+                    class="iconify"
+                    data-inline="false"
+                    data-icon="carbon:stop"
+                    style="font-size: 33px"
+                  ></span>
+                  <span
+                    class="iconify play"
+                    data-inline="false"
+                    data-icon="bi:play"
+                    style="color: #00ce93; font-size: 35px"
+                  ></span>
+                  <span
+                    class="iconify"
+                    data-inline="false"
+                    data-icon="bi:pause"
+                    style="font-size: 35px"
+                  ></span>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
-    </main>
+          </section>
+          <!-- info -->
+          <section class="info">
+            <div class="container">
+              <div class="inner-container">
+                <p class="info-title orange-text">weight</p>
+                <div class="num-unit-container">
+                  <p class="num">60</p>
+                  <p class="secondary-text unit">kg</p>
+                </div>
+              </div>
+              <div class="inner-container">
+                <p class="info-title blue-text">height</p>
+                <div class="num-unit-container">
+                  <p class="num">162</p>
+                  <p class="secondary-text unit">cm</p>
+                </div>
+              </div>
+              <div class="inner-container">
+                <p class="info-title green-text">bmi</p>
+                <p class="num">22.1</p>
+              </div>
+              <div class="inner-container">
+                <p class="info-title red-text">calories</p>
+                <div class="num-unit-container">
+                  <p class="num">1732</p>
+                  <p class="secondary-text unit">kcal</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
     <!-- iconify -->
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <!-- javascript -->
     <script src="./main.js"></script>
   </body>
 </html>

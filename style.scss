@@ -9,6 +9,11 @@ body {
   height: 100%;
 }
 
+a {
+  text-decoration: none;
+  color: initial;
+}
+
 @import "variables";
 
 @import "mixins";
@@ -21,12 +26,8 @@ body {
   position: relative;
   // to be pushed by sidenav
   left: 0;
+  // no transition for color
   transition: left $transition-duration, background-color $transition-duration;
-
-  // icons
-  svg {
-    color: $light-text-main;
-  }
 
   // body.dark
   &.dark {
@@ -39,10 +40,16 @@ body {
   }
 }
 
-// wrapping container
+// general container
 .container {
+  // relative to default font-size 16px
   padding: 1em;
-  @include restrict-width;
+}
+
+// max content width
+.container-max {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 // content container
@@ -88,12 +95,13 @@ body {
   top: 0;
   // hide nav
   right: -$sidenav-width;
-  z-index: 1;
   background-color: $light-background-container;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  // default font-size 16px
   padding: 1em;
-  transition: right $transition-duration, background-color $transition-duration;
+  // transition: right $transition-duration, background-color $transition-duration;
+  transition: all $transition-duration;
 
   @include dark-theme {
     background-color: $dark-background-container;
@@ -136,8 +144,10 @@ header {
     @include flex($justify: space-between, $align: center);
   }
 
-  p {
+  .logo {
     font-size: 1.1em;
+    // follow body's color
+    color: inherit;
   }
 
   .red-text {
@@ -155,11 +165,14 @@ header {
 
   .theme-toggler-container {
     @include theme-toggler-container;
+
     // hide theme toggler on small screen
     display: none;
 
     @include media-query($breakpoint-2) {
       display: flex;
+      /* background-color of toggler in sidenav
+       is different than in header */
       background-color: $light-background-container;
 
       @include dark-theme {
@@ -171,7 +184,8 @@ header {
 
 section.user {
   .container {
-    @include flex($align: center, $direction: column);
+    // $align controls horizontal alignment due to column direction
+    @include flex($direction: column, $align: center);
   }
 
   img {
@@ -186,7 +200,6 @@ section.user {
   }
 
   .secondary-text {
-    margin-top: 0.1em;
     font-size: 0.9em;
   }
 
@@ -199,6 +212,7 @@ section.user {
     @include media-query($breakpoint-2) {
       display: block;
       margin-top: 3em;
+      // to not align at center
       align-self: flex-start;
     }
   }
@@ -236,6 +250,42 @@ section.today-workout {
   }
 }
 
+section.workouts {
+  h1 {
+    @include header;
+  }
+
+  .inner-container {
+    position: relative;
+  }
+
+  .plus-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: $green;
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 700;
+    border: 7px solid $light-background-body;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: -0.7em;
+    margin-right: -0.5em;
+    cursor: pointer;
+    transition: border-color $transition-duration;
+
+    @include dark-theme {
+      border-color: $dark-background-body;
+    }
+  }
+
+  p {
+    padding: 0.7em 0;
+  }
+}
+
 section.timer {
   h1 {
     @include header;
@@ -253,8 +303,7 @@ section.timer {
 
   .timer-entry {
     @include flex($justify: space-between);
-    padding-top: 0.7em;
-    padding-bottom: 0.7em;
+    padding: 0.7em 0;
 
     .minus {
       margin-right: 1em;
@@ -304,52 +353,10 @@ section.info {
   .num {
     font-weight: 700;
     font-size: 1.7em;
-    color: $light-text-main;
-
-    @include dark-theme {
-      color: $dark-text-main;
-    }
   }
 
   .unit {
     font-size: 0.8em;
-  }
-}
-
-section.workouts {
-  h1 {
-    @include header;
-  }
-
-  .inner-container {
-    position: relative;
-  }
-
-  .plus-circle {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: $green;
-    color: #fff;
-    font-size: 1.3em;
-    font-weight: 500;
-    border: 7px solid $light-background-body;
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin-top: -0.7em;
-    margin-right: -0.5em;
-    transition: border-color $transition-duration;
-    @include flex($justify: center, $align: center);
-
-    @include dark-theme {
-      border-color: $dark-background-body;
-    }
-  }
-
-  p {
-    padding-top: 0.7em;
-    padding-bottom: 0.7em;
   }
 }
 
@@ -359,31 +366,32 @@ main {
     @include flex;
     flex-wrap: wrap;
 
-    // layout
     /*
+      layout
        - user info expand full width
        - next row is divided into two columns
     */
-    > * {
-      width: 50%;
-    }
 
     section.user {
       width: 100%;
+    }
+
+    .breakpoint-1-50 {
+      width: 50%;
     }
   }
 
   @include media-query($breakpoint-2) {
     @include flex($justify: space-between);
-    @include restrict-width;
 
     // layout: three columns
-    > * {
-      width: 40%;
-    }
 
     section.user {
       width: 20%;
+    }
+
+    .breakpoint-2-40 {
+      width: 40%;
     }
   }
 }

@@ -1,13 +1,17 @@
-# Build workout tracker dashboard
+# Build workout dashboard-HTML & SASS & Javascript
 
-Converting a design of workout tracker dashboard into HTML and SASS. There is an ability to switch between light/dark themes. The dashboard is fully responsive.
+Converting a design of workout dashboard into HTML and SASS! We will use Javascript to switch between light/dark themes & control side navigation. Also, the dashboard is fully responsive!
 
 ## Contents
 
+- [YouTube tutorial](#YouTube-tutorial)
 - [Demo](#Demo)
 - [Run project](#Run-project)
-- [Technologies](#Technologies)
 - [Resources](#Resources)
+
+### YouTube tutorial
+
+[Build a workout dashboard with HTML, SASS, Javascript]()
 
 ### Demo
 
@@ -16,11 +20,6 @@ Converting a design of workout tracker dashboard into HTML and SASS. There is an
 ## Run project
 
 Open up `index.html` in your browser.
-
-### Technologies
-
-- Design built with Figma
-- Building the dashboard with HTML & SASS
 
 ### Resources
 

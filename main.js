@@ -6,8 +6,8 @@ const openMenu = document.querySelector("#open-menu");
 const closeMenu = document.querySelector("#close-menu");
 const sideNav = document.querySelector("#side-nav");
 const body = document.querySelector("body");
-const sunIcons = document.querySelectorAll(".sun");
-const moonIcons = document.querySelectorAll(".moon");
+const sunIcons = document.querySelectorAll(".sun-outline");
+const moonIcons = document.querySelectorAll(".moon-outline");
 
 // event listeners
 
@@ -23,14 +23,14 @@ closeMenu.addEventListener("click", () => {
   body.style.left = "0";
 });
 
-// theme toggler: outlined/filled sun
+// theme toggler: outlined sun
 for (const sun of sunIcons) {
   sun.addEventListener("click", () => {
     body.classList.remove("dark");
   });
 }
 
-// theme toggler: outlined/filled moon
+// theme toggler: outlined moon
 for (const moon of moonIcons) {
   moon.addEventListener("click", () => {
     body.classList.add("dark");

@@ -1,5 +1,3 @@
-@import "variables";
-
 // display flex
 @mixin flex($justify: flex-start, $align: flex-start, $direction: row) {
   display: flex;
@@ -12,13 +10,14 @@
 @mixin header {
   text-transform: uppercase;
   font-size: 1.15em;
-  margin-bottom: 0.7em;
+  margin-bottom: 0.8em;
 }
 
-// max content width
-@mixin restrict-width {
-  max-width: 1200px;
-  margin: 0 auto;
+// rules for dark theme
+@mixin dark-theme {
+  body.dark & {
+    @content;
+  }
 }
 
 // navigation list
@@ -26,6 +25,7 @@
   list-style: none;
 
   li {
+    // align icons & text
     @include flex($align: center);
     font-size: 0.9em;
     margin-bottom: 2em;
@@ -33,11 +33,11 @@
 
     &.active {
       font-weight: 700;
-      font-size: 1em;
     }
   }
 
   svg {
+    // half svg's font-size
     margin-right: 0.5em;
   }
 }
@@ -59,7 +59,13 @@
     display: none;
   }
 
+  // flex to position the icon inside
+  .moon-outline {
+    display: flex;
+  }
+
   @include dark-theme {
+    // on small screen inside the side nav
     background-color: $dark-background-body;
 
     // hide filled sun/outlined moon in dark theme
@@ -71,15 +77,9 @@
     // show outlined sun/filled moon in dark theme
     .sun-outline,
     .moon-solid {
-      display: block;
+      // flex to position the icon inside .sun-outline
+      display: flex;
     }
-  }
-}
-
-// rules for dark theme
-@mixin dark-theme {
-  body.dark & {
-    @content;
   }
 }
 

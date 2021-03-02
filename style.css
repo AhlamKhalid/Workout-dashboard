@@ -247,10 +247,6 @@ header .logo {
   color: inherit;
 }
 
-header .red-text {
-  color: #fb4f5c;
-}
-
 header .open-menu {
   cursor: pointer;
 }

@@ -33,10 +33,6 @@ body {
   &.dark {
     color: $dark-text-main;
     background-color: $dark-background-body;
-
-    svg {
-      color: $dark-text-main;
-    }
   }
 }
 
@@ -378,8 +374,6 @@ main {
   }
 
   @include media-query($breakpoint-2) {
-    @include flex($justify: space-between);
-
     // layout: three columns
 
     section.user {

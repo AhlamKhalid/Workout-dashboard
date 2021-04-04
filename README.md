@@ -11,7 +11,7 @@ Converting a design of workout dashboard into HTML and SASS! We will use Javascr
 
 ### YouTube tutorial
 
-[Build a workout dashboard with HTML, SASS, Javascript]()
+[Build a workout dashboard with HTML, SASS, Javascript](https://youtube.com/playlist?list=PLV3Qom85zpc1Ak3bCFuS48BcDwtR34bac)
 
 ### Demo
 
